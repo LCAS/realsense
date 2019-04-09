@@ -17,6 +17,7 @@
     <depend>std_msgs</depend>
     <depend>roscpp</depend>
     <depend>dynamic_reconfigure</depend>
+    <depend>realsense2-sdk</depend>
 
     <exec_depend>message_runtime</exec_depend>
     <test_depend>rostest</test_depend>
