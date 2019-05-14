@@ -2,6 +2,9 @@
 Changelog for package ddynamic_reconfigure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.2.4 (2019-04-09)
 ------------------
 * Merge pull request `#1 <https://github.com/LCAS/realsense/issues/1>`_ from RaymondKirk/update-pkg-meta
