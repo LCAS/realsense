@@ -2,8 +2,8 @@
 Changelog for package realsense2_camera
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.2.6 (2019-05-22)
+------------------
 * Merge pull request `#2 <https://github.com/LCAS/realsense/issues/2>`_ from IntelRealSense/development
   pull from upstream
 * add note to rs_rgbd.launch, reminding users to initially install ros package rgbd_launch.
