@@ -50,28 +50,28 @@ install(DIRECTORY include/${PROJECT_NAME}/ DESTINATION ${CATKIN_PACKAGE_INCLUDE_
 ## Testing ##
 #############
 
-if (CATKIN_ENABLE_TESTING)
-    find_package(rostest REQUIRED)
+#if (CATKIN_ENABLE_TESTING)
+#    find_package(rostest REQUIRED)
 
-    ## DDynamic tester
-    add_rostest_gtest(ddynamic_reconfigure-test test/ddynamic_reconfigure.test test/test_ddynamic_reconfigure.cpp)
-    target_link_libraries(ddynamic_reconfigure-test ${PROJECT_NAME})
+#    ## DDynamic tester
+#    add_rostest_gtest(ddynamic_reconfigure-test test/ddynamic_reconfigure.test test/test_ddynamic_reconfigure.cpp)
+#    target_link_libraries(ddynamic_reconfigure-test ${PROJECT_NAME})
 
     ## DDParam tester
-    foreach (param_type int double bool string enum)
-        add_rostest_gtest(dd_${param_type}-test test/dd_param/dd_${param_type}.test test/dd_param/test_dd_${param_type}.cpp)
-        target_link_libraries(dd_${param_type}-test ${PROJECT_NAME})
-    endforeach ()
+#    foreach (param_type int double bool string enum)
+#        add_rostest_gtest(dd_${param_type}-test test/dd_param/dd_${param_type}.test test/dd_param/test_dd_${param_type}.cpp)
+#        target_link_libraries(dd_${param_type}-test ${PROJECT_NAME})
+#    endforeach ()
 
     ## DDValue tester
-    add_rostest_gtest(dd_value-test test/dd_value.test test/test_dd_value.cpp)
-    target_link_libraries(dd_value-test ${PROJECT_NAME})
+#    add_rostest_gtest(dd_value-test test/dd_value.test test/test_dd_value.cpp)
+#    target_link_libraries(dd_value-test ${PROJECT_NAME})
 
     ## Full scale tester
-    add_executable(dd_server test/dd_full_scale/dd_server.cpp)
-    target_link_libraries(dd_server ${PROJECT_NAME} ${catkin_LIBRARIES})
-    add_dependencies(dd_server ${PROJECT_NAME}_gencpp)
+#    add_executable(dd_server test/dd_full_scale/dd_server.cpp)
+#    target_link_libraries(dd_server ${PROJECT_NAME} ${catkin_LIBRARIES})
+#    add_dependencies(dd_server ${PROJECT_NAME}_gencpp)
 
-    add_rostest_gtest(dd_full_scale-test test/dd_full_scale/dd_full_scale.test test/dd_full_scale/dd_client.cpp)
-    target_link_libraries(dd_full_scale-test ${PROJECT_NAME})
-endif(CATKIN_ENABLE_TESTING)
+#    add_rostest_gtest(dd_full_scale-test test/dd_full_scale/dd_full_scale.test test/dd_full_scale/dd_client.cpp)
+#    target_link_libraries(dd_full_scale-test ${PROJECT_NAME})
+#endif(CATKIN_ENABLE_TESTING)
