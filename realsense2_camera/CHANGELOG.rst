@@ -2,8 +2,8 @@
 Changelog for package realsense2_camera
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.3.0 (2019-11-15)
+------------------
 * Update package.xml
 * Update CMakeLists.txt
 * Contributors: Marc Hanheide
