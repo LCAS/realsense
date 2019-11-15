@@ -2,6 +2,12 @@
 Changelog for package realsense2_camera
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update package.xml
+* Update CMakeLists.txt
+* Contributors: Marc Hanheide
+
 2.2.6 (2019-05-22)
 ------------------
 * Merge pull request `#2 <https://github.com/LCAS/realsense/issues/2>`_ from IntelRealSense/development

@@ -2,6 +2,11 @@
 Changelog for package ddynamic_reconfigure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* disable testing
+* Contributors: Marc Hanheide
+
 2.2.6 (2019-05-22)
 ------------------
 
