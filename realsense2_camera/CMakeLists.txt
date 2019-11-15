@@ -19,6 +19,8 @@ find_package(catkin REQUIRED COMPONENTS
     diagnostic_updater
     )
 
+find_package(Eigen3 REQUIRED)
+
 if(BUILD_WITH_OPENMP)
     find_package(OpenMP)
     if(NOT OpenMP_FOUND)
@@ -64,6 +66,7 @@ include_directories(
     include
     ${catkin_INCLUDE_DIRS}
     ${realsense_INCLUDE_DIR}
+    ${Eigen3_INCLUDE_DIRS}
     )
 
 # RealSense ROS Node
