@@ -15,8 +15,6 @@
 #include <cv_bridge/cv_bridge.h>
 #include <constants.h>
 #include <realsense2_camera/Extrinsics.h>
-#include <tf/transform_broadcaster.h>
-#include <tf2_ros/static_transform_broadcaster.h>
 #include <realsense2_camera/IMUInfo.h>
 #include <csignal>
 #include <eigen3/Eigen/Geometry>
@@ -65,13 +63,17 @@ namespace realsense2_camera
         void getDevice(rs2::device_list list);
         virtual void onInit() override;
         void tryGetLogSeverity(rs2_log_severity& severity) const;
+        static std::string parse_usb_port(std::string line);
 
         rs2::device _device;
         std::unique_ptr<InterfaceRealSenseNode> _realSenseNode;
         rs2::context _ctx;
         std::string _serial_no;
+        std::string _usb_port_id;
+        std::string _device_type;
         bool _initial_reset;
         std::thread _query_thread;
+        bool _is_alive;
 
     };
 }//end namespace

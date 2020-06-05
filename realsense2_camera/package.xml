@@ -12,6 +12,7 @@
   <author email="sergey.dorodnicov@intel.com">Sergey Dorodnicov</author>
   <author email="doron.hirshberg@intel.com">Doron Hirshberg</author>
   <buildtool_depend>catkin</buildtool_depend>
+  <depend>eigen</depend>
   <depend>image_transport</depend>
   <depend>cv_bridge</depend>
   <depend>nav_msgs</depend>
@@ -24,9 +25,7 @@
   <depend>tf</depend>
   <depend>ddynamic_reconfigure</depend>
   <depend>diagnostic_updater</depend>
-  <depend>eigen</depend>
-  <depend>realsense2-sdk</depend>
-
+  <depend>librealsense2</depend>
   <export>
     <nodelet plugin="${prefix}/nodelet_plugins.xml" />
   </export>
