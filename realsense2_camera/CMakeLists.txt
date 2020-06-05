@@ -19,8 +19,6 @@ find_package(catkin REQUIRED COMPONENTS
     diagnostic_updater
     )
 
-find_package(Eigen3 REQUIRED)
-
 if(BUILD_WITH_OPENMP)
     find_package(OpenMP)
     if(NOT OpenMP_FOUND)
@@ -36,12 +34,17 @@ if(SET_USER_BREAK_AT_STARTUP)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBPDEBUG")
 endif()
 
-find_package(realsense2 2.19.0)
+find_package(realsense2 2.32.1)
 if(NOT realsense2_FOUND)
     message(FATAL_ERROR "\n\n Intel RealSense SDK 2.0 is missing, please install it from https://github.com/IntelRealSense/librealsense/releases\n\n")
 endif()
 
-if (CMAKE_BUILD_TYPE EQUAL "RELEASE")
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+string(TOUPPER "${CMAKE_BUILD_TYPE}" uppercase_CMAKE_BUILD_TYPE)
+if (${uppercase_CMAKE_BUILD_TYPE} STREQUAL "RELEASE")
     message(STATUS "Create Release Build.")
     set(CMAKE_CXX_FLAGS "-O2 ${CMAKE_CXX_FLAGS}")
 else()
@@ -62,11 +65,11 @@ generate_messages(
     std_msgs
     )
 
+set(CMAKE_NO_SYSTEM_FROM_IMPORTED true)
 include_directories(
     include
+    ${realsense2_INCLUDE_DIR}
     ${catkin_INCLUDE_DIRS}
-    ${realsense_INCLUDE_DIR}
-    ${Eigen3_INCLUDE_DIRS}
     )
 
 # RealSense ROS Node
@@ -93,9 +96,8 @@ add_library(${PROJECT_NAME}
 add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_generate_messages_cpp)
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 
-
 target_include_directories(${PROJECT_NAME}
-  PRIVATE ${realsense_INCLUDE_DIR})
+  PRIVATE ${realsense2_INCLUDE_DIR})
 
 target_link_libraries(${PROJECT_NAME}
     ${realsense2_LIBRARY}
@@ -130,12 +132,3 @@ install(FILES nodelet_plugins.xml
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
     )
 
-# Install urdf files
-install(DIRECTORY urdf/
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf
-    )
-
-# Install mesh files
-install(DIRECTORY meshes/
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/meshes
-    )
